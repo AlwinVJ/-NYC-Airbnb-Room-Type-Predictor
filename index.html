@@ -15,18 +15,39 @@
 <div class="grain" aria-hidden="true"></div>
 
 <div class="page">
+  <main class="app-layout">
 
-  <header class="hero">
-    <p class="eyebrow">NYC Airbnb <span class="dot">·</span> Room Type Predictor</p>
-    <h1 class="headline">What kind of stay<br>is this listing?</h1>
-    <p class="subhead">Enter a listing's details and the model will predict whether it's an
-      entire home, a private room, or a shared room — the way the city lights up differently
-      behind each kind of door.</p>
-  </header>
+    <!-- LEFT COLUMN: INTRODUCTION -->
+    <aside class="panel intro-panel" aria-labelledby="introTitle">
+      <div class="intro-content">
+        <p class="eyebrow">NYC Airbnb <span class="dot">·</span> Room Type Predictor</p>
+        <h1 class="headline" id="introTitle">What kind of stay<br>is this listing?</h1>
+        <p class="subhead">Enter a listing's details and the model will predict whether it's an
+          entire home, a private room, or a shared room — the way the city lights up differently
+          behind each kind of door.</p>
 
-  <main class="grid">
+        <div class="room-badges">
+          <div class="badge-item">
+            <span class="badge-tag">Entire home/apt</span>
+            <span class="badge-desc">Full apartment or house to oneself</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-tag">Private room</span>
+            <span class="badge-desc">Own bedroom, shared common spaces</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-tag">Shared room</span>
+            <span class="badge-desc">Shared sleeping &amp; living quarters</span>
+          </div>
+        </div>
+      </div>
 
-    <!-- FORM PANEL -->
+      <div class="intro-footer">
+        <p>Model served via FastAPI &amp; scikit-learn <span class="dot">·</span> trained on NYC Airbnb listing data</p>
+      </div>
+    </aside>
+
+    <!-- MIDDLE COLUMN: INPUT FORM -->
     <section class="panel form-panel" aria-labelledby="formTitle">
       <div class="panel-head">
         <h2 id="formTitle">Listing details</h2>
@@ -80,10 +101,12 @@
               <input type="number" id="minimum_nights" name="minimum_nights" min="1" max="365" step="1" placeholder="3" required>
             </div>
           </div>
-          <div class="field">
-            <label for="availability_365">Days available per year</label>
+          <div class="field field-range">
+            <div class="range-label-row">
+              <label for="availability_365">Days available per year</label>
+              <div class="range-readout"><span id="availabilityValue">180</span> / 365 days</div>
+            </div>
             <input type="range" id="availability_365" name="availability_365" min="0" max="365" step="1" value="180" required>
-            <div class="range-readout"><span id="availabilityValue">180</span> / 365 days</div>
           </div>
         </fieldset>
 
@@ -114,7 +137,7 @@
       </form>
     </section>
 
-    <!-- RESULT PANEL -->
+    <!-- RIGHT COLUMN: PREDICTION RESULTS -->
     <section class="panel result-panel" aria-labelledby="resultTitle" aria-live="polite">
       <div class="panel-head">
         <h2 id="resultTitle">Prediction</h2>
@@ -148,10 +171,6 @@
     </section>
 
   </main>
-
-  <footer class="page-footer">
-    <p>Model served via FastAPI &amp; scikit-learn <span class="dot">·</span> trained on NYC Airbnb listing data</p>
-  </footer>
 </div>
 
 <script src="script.js"></script>
