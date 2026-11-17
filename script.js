@@ -2,7 +2,8 @@
 // CONFIG
 // ============================================================
 // Point this at wherever your FastAPI app is running.
-const API_BASE_URL = window.API_BASE_URL || "http://127.0.0.1:8000";
+// Automatically falls back to current origin when served over http(s), or 127.0.0.1:8000 for local file testing.
+const API_BASE_URL = window.API_BASE_URL || (window.location.protocol.startsWith("http") ? window.location.origin : "http://127.0.0.1:8000");
 const PREDICT_ENDPOINT = `${API_BASE_URL}/predict`;
 const HEALTH_ENDPOINT = `${API_BASE_URL}/health`;
 

@@ -1,0 +1,55 @@
+# Git metadata
+.git/
+.gitignore
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter notebooks & checkpoints
+*.ipynb
+.ipynb_checkpoints/
+
+# Documentation & analysis assets not required for inference
+pipeline.html
+pipeline.png
+the_build_line_guide.html
+scratch/
+
+# Environment files & credentials
+.env
+.env.*
+*.secret
+*.pem
+*.key
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
